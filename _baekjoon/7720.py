@@ -3,9 +3,11 @@ letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 k, n = input().split(" ")
 frq = []
+frqsum = 0
 for i in range(int(n)):
     frq.append(input().split(" "))
     frq[i][1] = int(frq[i][1])
+    frqsum += frq[i][1]
 # Letter + frequency 
 
 enc = input()
@@ -15,15 +17,13 @@ key = [0 for i in range(int(k))]
 start = time.time()
 while 1:
     for i in range(0, len(enc)):
-        if letter.index(enc[i]) < key[i % 5] :
-            dec.append(letter[(letter.index(enc[i]) - key[i % 5]) + 26])
-        else : dec.append(letter[(letter.index(enc[i]) - key[i % 5])])
+        dec.append(letter[(letter.index(enc[i]) - key[i % 5])])
     
     dec_letter = ''.join(dec)
     score = 0
     for i in range(int(n)):
         if dec_letter.count(frq[i][0]) == int(frq[i][1]) : score = score + 1
-    if score == n : break
+    if score == frqsum : break
     elif key[4] == 25 : break
     else :
         key[0] = key[0] + 1
