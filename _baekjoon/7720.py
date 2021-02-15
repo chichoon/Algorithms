@@ -22,7 +22,6 @@ while 1:
     for i in range(n):
         if dec_letter.count(frq[i][0]) == frq[i][1] : score = score + 1
     if score == n : break
-    elif key[4] == 25 : break
     else :
         key[0] = key[0] + 1
         if key[0] == 26 :
@@ -33,6 +32,8 @@ while 1:
                     key[3] = key[3] + 1
                     if key[3] == 26 :
                         key[4] = key[4] + 1
+                        if key[4] == 26 :
+                            break
                         key[3] = 0
                     key[2] = 0
                 key[1] = 0
