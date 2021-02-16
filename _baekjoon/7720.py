@@ -24,20 +24,10 @@ while 1:
     if score == n : break
     else :
         key[0] = key[0] + 1
-        if key[0] == 26 :
-            key[1] = key[1] + 1
-            if key[1] == 26 :
-                key[2] = key[2] + 1
-                if key[2] == 26 :
-                    key[3] = key[3] + 1
-                    if key[3] == 26 :
-                        key[4] = key[4] + 1
-                        if key[4] == 26 :
-                            break
-                        key[3] = 0
-                    key[2] = 0
-                key[1] = 0
-            key[0] = 0
+        for i in range(k):
+            if key[i] == 26 :
+                key[i + 1] = key[i + 1] + 1
+                key[i] = 0
     dec = []
 
 result = []
