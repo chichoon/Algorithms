@@ -21,3 +21,5 @@
 - **List** (리스트 : ['hello', 'byebye']) 가변자료형 (mutable)
 - **Tuple** (튜플 : ('hello', 'byebye')) 불변자료형 (immutable)
 - **Dictionary** (딕셔너리 : {'label1' : 'hello', 'label2' : 'byebye'}) key는 불변, value는 가변
+
+##
