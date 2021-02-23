@@ -15,7 +15,7 @@
 - **None** (없음)
 - 변수 선언 시 이름 규칙 : hello_i_am_chichoon
     - 언더바를 붙여가면서 소문자로 표기
-    - 자바스크립트는 HelloIAmChichoon 식이었음
+    - 자바스크립트 규칙에 의하면 -> HelloIAmChichoon
 
 ## 열거형 자료형
 - **List** (리스트 : ['hello', 'byebye']) 가변자료형 (mutable)
