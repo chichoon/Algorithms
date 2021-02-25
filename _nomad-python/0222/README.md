@@ -19,6 +19,7 @@
 
 ## 열거형 자료형
 - **List** (리스트 : ['hello', 'byebye']) 가변자료형 _(mutable)_
+    - common operation, mutable sequence operation 사용 가능
     - 값에 접근 : list1[0], list1[1], ...
     - 리스트에 값이 있는지 확인 : 'hello' in list1 _(return: bool)_
     - 리스트 길이 확인 : len(list1) _(return: int)_
@@ -26,4 +27,9 @@
     - 리스트 항목 삭제 : del(list1[0])
     - 리스트 순서 뒤집기 : list1.reverse()
 - **Tuple** (튜플 : ('hello', 'byebye')) 불변자료형 _(immutable)_
+    - 리스트와 다르게 common operation만 사용가능
 - **Dictionary** (딕셔너리 : {'label1' : 'hello', 'label2' : 'byebye'}) key는 불변, value는 가변
+    - Javascript의 Object와 비슷한 느낌
+    - 값에 접근 : dict1[label1] ...
+    - value 출력 : dict1.get('name')
+    - 값 삭제 : del dict1[label1]

@@ -10,3 +10,12 @@ print(list1)
 list1.clear()
 print(list1)
 #list 전부 증발
+
+dict1 = {
+    'name' : 'chi',
+    'game' : ['rainworld', 'ACNH', 'supermario'],
+    'age' : 24
+}
+
+print(dict1['name'])
+print(dict1.get('name'))
