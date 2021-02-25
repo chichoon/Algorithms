@@ -18,10 +18,12 @@
     - 자바스크립트 규칙에 의하면 -> HelloIAmChichoon
 
 ## 열거형 자료형
-- **List** (리스트 : ['hello', 'byebye']) 가변자료형 (mutable)
+- **List** (리스트 : ['hello', 'byebye']) 가변자료형 _(mutable)_
     - 값에 접근 : list1[0], list1[1], ...
-    - 리스트에 값이 있는지 확인 : 'hello' in list1 (return: bool)
+    - 리스트에 값이 있는지 확인 : 'hello' in list1 _(return: bool)_
+    - 리스트 길이 확인 : len(list1) _(return: int)_
     - 리스트에 추가 : list1.append('haha')
-    - 리스트에 삭제 : 
-- **Tuple** (튜플 : ('hello', 'byebye')) 불변자료형 (immutable)
+    - 리스트 항목 삭제 : del(list1[0])
+    - 리스트 순서 뒤집기 : list1.reverse()
+- **Tuple** (튜플 : ('hello', 'byebye')) 불변자료형 _(immutable)_
 - **Dictionary** (딕셔너리 : {'label1' : 'hello', 'label2' : 'byebye'}) key는 불변, value는 가변
