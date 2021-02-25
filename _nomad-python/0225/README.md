@@ -7,3 +7,7 @@
 - pip 이용하여 다운받은 모듈은 from matplotlib import pyplot 등
 - import한 모듈 명이 너무 길으면 import matplotlib.pyplot **as plt** 처럼 줄임말을 설정 가능
 - 모듈을 한번에 불러오면 묵직하므로 필요한 함수만 쏙쏙 불러와서 사용하는 것이 좋다
+- 내가 만든 py 파일 내의 함수들도 from 파일명 import 함수명 으로 불러올 수 있음 (같은 폴더 내에 저장할 시)
+
+# Web scrapper 
+- url을 받았을 때 해당 웹 상의 데이터를 추출하는 기능
