@@ -24,8 +24,8 @@ def extract_indeed_pages():
     #총 페이지 수 (가장 큰 페이지 넘버)
     return max_page
 
-
+    
 def extract_indeed_jobs(last_page):
     for page in range(last_page):
-        print(f"&start={LIMIT * page}")
-
+        result = requests.get(f"{URL}&start={LIMIT * page}")
+        print(result.status_code)
