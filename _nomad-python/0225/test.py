@@ -20,5 +20,3 @@ print(indeed_result)
 
 print(indeed_result.text)
 #주소에 해당하는 모든 html 소스를 출력함
-
-import beautifulsoup4
