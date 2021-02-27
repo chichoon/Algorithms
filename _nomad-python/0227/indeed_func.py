@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 LIMIT = 50
 URL = "https://kr.indeed.com/jobs?q=python"
 
-def extract_indeed_pages():
+def extract_pages():
     result = requests.get(URL)
     soup = BeautifulSoup(result.text, "html.parser")
 
@@ -46,11 +46,12 @@ def extract_job(html):
     #\n 삭제 (줄옮김 삭제)
     location = html.find("div", {"class": "recJobLoc"})["data-rc-loc"]
     job_id = html["data-jk"]
+    #[] 괄호 안에 있는 것 : attribute
     return {"title" : title, "company" : company, "location" : location, "link" : f"https://www.indeed.com/viewjob?jk={job_id}"}
     #딕셔너리 return
     
 
-def extract_indeed_jobs(last_page):
+def save_jobs(last_page):
     jobs = [] #빈 리스트 선언
     for page in range(last_page):
         print(f"★Scrapping page {page} :")
@@ -63,4 +64,10 @@ def extract_indeed_jobs(last_page):
             #results는 soup 내의 soup 요소들이 들어있는 list이므로, 
             #results 내의 원소 res는 모두 soup와 같이 쓸 수 있다
             jobs.append(extract_job(res))
+    return jobs
+
+
+def get_jobs():
+    max_pages = extract_pages()
+    jobs = save_jobs(max_pages)
     return jobs
