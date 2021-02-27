@@ -8,7 +8,7 @@ def extract_indeed_pages():
     result = requests.get(URL)
     soup = BeautifulSoup(result.text, "html.parser")
 
-    print(soup.title) #Github page title
+    print(soup.title.string) #Github page title
     pagination = soup.find("div", {"class": "pagination"})
     #div라는 키워드를 포함하고, class가 pagination인 요소 검색
 
@@ -44,13 +44,17 @@ def extract_job(html):
         #링크가 없을 때
     company = company.strip()
     #\n 삭제 (줄옮김 삭제)
-    return {"title" : title, "company" : company}
+    location = html.find("div", {"class": "recJobLoc"})["data-rc-loc"]
+    job_id = html["data-jk"]
+    return {"title" : title, "company" : company, "location" : location, "link" : f"https://www.indeed.com/viewjob?jk={job_id}"}
     #딕셔너리 return
     
 
 def extract_indeed_jobs(last_page):
     jobs = [] #빈 리스트 선언
     for page in range(last_page):
+        print(f"★Scrapping page {page} :")
+
         result = requests.get(f"{URL}&start={LIMIT * page}")
         soup = BeautifulSoup(result.text, "html.parser")
         #각 페이지마다 soup 이용해서 html 파싱
@@ -59,4 +63,4 @@ def extract_indeed_jobs(last_page):
             #results는 soup 내의 soup 요소들이 들어있는 list이므로, 
             #results 내의 원소 res는 모두 soup와 같이 쓸 수 있다
             jobs.append(extract_job(res))
-    print(jobs)
+    return jobs
