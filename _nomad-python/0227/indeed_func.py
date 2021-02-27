@@ -24,7 +24,30 @@ def extract_indeed_pages():
     #총 페이지 수 (가장 큰 페이지 넘버)
     return max_page
 
+
+def extract_job(html):
+    '''
+    title = html.find("h2", {"class": "title"})
+    actual_title = title.find("a")["title"]
+    print(actual_title)
+    '''
+    title = html.find("h2", {"class": "title"}).find("a")["title"]
+    #한줄로 뭉쳐줌
+    company = html.find("span", {"class": "company"})
+    company_anchor = company.find("a")
+    #회사명에 링크가 달려있는 것과 아닌 것을 구분
+    if company_anchor is not None:
+        company = company_anchor.string
+        #링크가 있을 때
+    else:
+        company = company.string
+        #링크가 없을 때
+    company = company.strip()
+    #\n 삭제 (줄옮김 삭제)
+    return {"title" : title, "company" : company}
+    #딕셔너리 return
     
+
 def extract_indeed_jobs(last_page):
     jobs = [] #빈 리스트 선언
     for page in range(last_page):
@@ -35,12 +58,5 @@ def extract_indeed_jobs(last_page):
         for res in results:
             #results는 soup 내의 soup 요소들이 들어있는 list이므로, 
             #results 내의 원소 res는 모두 soup와 같이 쓸 수 있다
-            '''
-            title = res.find("h2", {"class": "title"})
-            actual_title = title.find("a")["title"]
-            print(actual_title)
-            '''
-            title = res.find("h2", {"class": "title"}).find("a")["title"]
-            #한줄로 뭉쳐줌
-            company = res.find("span", {"class": "company"}).string
-            print(f"{title} ★ {company}")
+            jobs.append(extract_job(res))
+    print(jobs)
