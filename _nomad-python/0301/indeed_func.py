@@ -58,7 +58,6 @@ def save_jobs(last_page):
     jobs = [] #빈 리스트 선언
     for page in range(last_page):
         print(f"★Scrapping page {page} :")
-
         result = requests.get(f"{URL}&start={LIMIT * page}")
         soup = BeautifulSoup(result.text, "html.parser")
         #각 페이지마다 soup 이용해서 html 파싱

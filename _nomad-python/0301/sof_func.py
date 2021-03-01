@@ -19,18 +19,25 @@ def extract_pages():
     
 
 def extract_jobs(html):
-    title = html.find("div", {"class": "-title"})
+    title = html.find("h2", {"class" : "mb4"}).find("a")["title"]
+    company, location = html.find("h3", {"class": "mb4"}).find_all("span", recursive = False)
+    #recursive = False : span 내의 span 내의 span... 을 반복적으로 가져오지 않게 함
+    #(첫 번째 span에 해당하는 요소만 갖고오게 함)
+    #list 내 요소가 2개라는 것을 이미 알고 있으면, 위와 같이 각각의 변수에 값 집어넣을 수 있다
+    print(title)
+    print(company.get_text(strip=1), location.get_text(strip=1))
+    return {"title": title, "company": company, "location": location}
 
 
 def save_jobs(last_page):
     jobs = []
     for page in range(last_page):
+        print(f"☆Scrapping page {page} :")
         result = requests.get(f"{URL}&pg={page + 1}")
         soup = BeautifulSoup(result.text, "html.parser")
         results = soup.find_all("div", {"class":"-job"})
         for res in results:
-            job = extract_jobs(res)
-            jobs.append(job)
+            jobs.append(extract_jobs(res))
     return jobs
 
 
