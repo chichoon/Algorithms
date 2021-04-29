@@ -1,6 +1,7 @@
-# python_alg
-Python Algorithm study (personal)
+# Algorithm Study
 
-## Personal goal 
-- to commit at least 2 algorithm code for day
+Python / C / _etc? javascript?_
+
+## Personal goal
+
 - study algorithm solving methods via [algospot](https://algospot.com/judge/problem/list/), [Baekjoon](https://www.acmicpc.net/user/chichoon)
