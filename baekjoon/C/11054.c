@@ -2,6 +2,27 @@
 #include <string.h>
 #include <stdlib.h>
 
+int	find_max(int *arr, int n)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = -1;
+	while (i < n)
+	{
+		if (max < arr[i])
+			max = arr[i];
+		i++;
+	}
+	return (max);
+}
+
+int	upper(int *arr, int n)
+{
+
+}
+
 int	bitonic(int *arr, int n)
 {
 	int	i;
