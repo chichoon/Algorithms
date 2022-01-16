@@ -3,7 +3,7 @@ const wash = () => {
   let input = fs.readFileSync("/dev/stdin").toString().split("\n");
   const arr = input[0].split(" ");
   let ret = [];
-  for (var i in arr) {
+  for (let i in arr) {
     ret.push(Number(arr[i]));
   }
   console.log(

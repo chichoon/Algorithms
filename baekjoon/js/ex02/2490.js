@@ -3,7 +3,7 @@ const yootNori = () => {
   let input = fs.readFileSync("/dev/stdin").toString().split("\n");
   let numOfZero = 0;
 
-  for (var i in input) {
+  for (let i in input) {
     if (input[i] !== "") {
       let arr = input[i].split(" ");
       arr.forEach((i) => {
