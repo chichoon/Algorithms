@@ -84,4 +84,4 @@ class LinkedList {
   }
 }
 
-export { node, LinkedList };
+export { Node, LinkedList };
