@@ -3,37 +3,37 @@ const editor = () => {
   let input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
   let index = 2;
   const len = input.length;
-  let stack1 = [];
-  let stack2 = [];
+  let stackLeft = [];
+  let stackRight = [];
 
   for (let i in input[0]) {
-    stack1.push(input[0][i]);
+    stackLeft.push(input[0][i]);
   }
 
   while (index < len) {
     switch (input[index][0]) {
       case "L":
-        if (stack1.length !== 0) {
-          stack2.push(stack1.pop());
+        if (stackLeft.length !== 0) {
+          stackRight.push(stackLeft.pop());
         }
         break;
       case "D":
-        if (stack2.length !== 0) {
-          stack1.push(stack2.pop());
+        if (stackRight.length !== 0) {
+          stackLeft.push(stackRight.pop());
         }
         break;
       case "B":
-        if (stack1.length !== 0) {
-          stack1.pop();
+        if (stackLeft.length !== 0) {
+          stackLeft.pop();
         }
         break;
       case "P":
-        stack1.push(input[index][2]);
+        stackLeft.push(input[index][2]);
         break;
     }
     index++;
   }
-  console.log([...stack1, ...stack2.reverse()].join(""));
+  console.log([...stackLeft, ...stackRight.reverse()].join(""));
 };
 
 editor();
