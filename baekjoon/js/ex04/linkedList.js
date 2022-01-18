@@ -14,18 +14,27 @@ class LinkedList {
     this.tail.prev = this.head;
     this.size = 0;
   }
-  insertBack(data) {
+  insertFront(data) {
+    let node = new Node(data);
+
+    node.prev = this.head;
+    node.next = this.head.next;
+    this.head.next.prev = node;
+    this.head.next = node;
+  }
+  insertLast(data) {
     let node = new Node(data);
     let currentNode;
 
     if (!this.head) this.head = node;
     else {
       currentNode = this.head;
-      while (currentNode.next) currentNode = currentNode.next;
+      while (currentNode.next !== this.tail) currentNode = currentNode.next;
     }
-    currentNode.next = node;
     node.prev = currentNode;
     node.next = this.tail;
+    this.tail.prev = node;
+    currentNode.next = node;
     this.size++;
   }
   insertNext(data, index) {
@@ -55,7 +64,7 @@ class LinkedList {
     let currentNode;
     let count = 0;
 
-    currentNode = this.head;
+    currentNode = this.head.next;
     while (count < index) {
       currentNode = currentNode.next;
       count++;
