@@ -21,19 +21,17 @@ const magicka = () => {
     while (base.length > 0) {
       flag = false;
       stack.push(base.pop());
-      if (combine) {
-        if (stack.length > 1) {
-          if (
-            stack[stack.length - 1] + stack[stack.length - 2] ===
-              combine.slice(0, 2) ||
-            stack[stack.length - 2] + stack[stack.length - 1] ===
-              combine.slice(0, 2)
-          ) {
-            stack.pop();
-            stack.pop();
-            stack.push(combine[2]);
-            flag = true;
-          }
+      if (combine && stack.length > 1) {
+        if (
+          stack[stack.length - 1] + stack[stack.length - 2] ===
+            combine.slice(0, 2) ||
+          stack[stack.length - 2] + stack[stack.length - 1] ===
+            combine.slice(0, 2)
+        ) {
+          stack.pop();
+          stack.pop();
+          stack.push(combine[2]);
+          flag = true;
         }
       }
       if (!flag && oppose) {
