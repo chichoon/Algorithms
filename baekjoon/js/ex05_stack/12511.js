@@ -7,7 +7,7 @@ const magicka = () => {
   for (i of input) {
     let arr = i.split(" ");
     let stack = [];
-    let base = arr[arr.length - 1].split("").reverse();
+    let base = arr[arr.length - 1].split("");
     const combine = parseInt(arr[0]) ? arr[1] : null;
     const oppose = combine
       ? parseInt(arr[2])
@@ -17,8 +17,8 @@ const magicka = () => {
       ? arr[2]
       : null;
 
-    while (base.length > 0) {
-      stack.push(base.pop());
+    for (s of base) {
+      stack.push(s);
       if (combine && stack.length > 1) {
         if (
           stack[stack.length - 1] + stack[stack.length - 2] ===
@@ -26,9 +26,7 @@ const magicka = () => {
           stack[stack.length - 2] + stack[stack.length - 1] ===
             combine.slice(0, 2)
         ) {
-          stack.pop();
-          stack.pop();
-          stack.push(combine[2]);
+          stack = [...stack.slice(0, stack.length - 2), combine[2]];
         }
       }
       if (oppose)
