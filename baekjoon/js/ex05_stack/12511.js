@@ -16,10 +16,8 @@ const magicka = () => {
       : parseInt(arr[1])
       ? arr[2]
       : null;
-    let flag;
 
     while (base.length > 0) {
-      flag = false;
       stack.push(base.pop());
       if (combine && stack.length > 1) {
         if (
@@ -31,10 +29,9 @@ const magicka = () => {
           stack.pop();
           stack.pop();
           stack.push(combine[2]);
-          flag = true;
         }
       }
-      if (!flag && oppose)
+      if (oppose)
         if (stack.indexOf(oppose[0]) >= 0 && stack.indexOf(oppose[1]) >= 0)
           stack = [];
     }
