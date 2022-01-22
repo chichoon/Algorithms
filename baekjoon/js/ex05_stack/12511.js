@@ -34,10 +34,9 @@ const magicka = () => {
           flag = true;
         }
       }
-      if (!flag && oppose) {
+      if (!flag && oppose)
         if (stack.indexOf(oppose[0]) >= 0 && stack.indexOf(oppose[1]) >= 0)
-          while (stack.length > 0) stack.pop();
-      }
+          stack = [];
     }
     console.log(`Case #${idx}: [${stack.join(", ")}]`);
     idx++;
