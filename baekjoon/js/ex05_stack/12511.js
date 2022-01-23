@@ -4,7 +4,7 @@ const magicka = () => {
   input.shift();
   let idx = 1;
 
-  for (i of input) {
+  for (let i of input) {
     let arr = i.split(" ");
     let stack = [];
     let base = arr[arr.length - 1].split("");
@@ -17,7 +17,7 @@ const magicka = () => {
       ? arr[2]
       : null;
 
-    for (s of base) {
+    for (let s of base) {
       stack.push(s);
       if (combine && stack.length > 1) {
         if (
