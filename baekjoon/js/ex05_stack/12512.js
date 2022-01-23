@@ -22,10 +22,10 @@ const magicka = () => {
       : null;
 
     if (combine)
-      for (j in combine)
+      for (let j in combine)
         combine.push(combine[j][1] + combine[j][0] + combine[j][2]);
 
-    for (s of base) {
+    for (let s of base) {
       stack.push(s);
       if (combine && stack.length > 1) {
         let done = false;
