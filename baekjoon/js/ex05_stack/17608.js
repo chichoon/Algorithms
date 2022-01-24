@@ -7,7 +7,7 @@ const stick = () => {
   });
   let stack = [];
 
-  for (i of input) {
+  for (let i of input) {
     while (stack.length > 0 && stack[stack.length - 1] <= i) stack.pop();
     stack.push(i);
   }

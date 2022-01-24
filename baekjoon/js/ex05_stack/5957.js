@@ -8,14 +8,14 @@ const dish = () => {
   let cleaned = [];
   let dried = [];
 
-  for (i of input) {
+  for (let i of input) {
     let cd = i.split(" ").map((n) => {
       return parseInt(n);
     });
     if (cd[0] === 1) {
-      for (let i = 0; i < cd[1]; i++) cleaned.push(dish.pop());
+      for (let j = 0; j < cd[1]; j++) cleaned.push(dish.pop());
     } else if (cd[0] === 2) {
-      for (let i = 0; i < cd[1]; i++) dried.push(cleaned.pop());
+      for (let j = 0; j < cd[1]; j++) dried.push(cleaned.pop());
     }
   }
   console.log(dried.reverse().join("\n"));

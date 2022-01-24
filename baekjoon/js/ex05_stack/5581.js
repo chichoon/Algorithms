@@ -9,7 +9,7 @@ const narabe = () => {
   let idx = 1;
   let white = 0;
 
-  for (i of input) {
+  for (let i of input) {
     if (stack.length === 0) stack.push([i, 1]);
     else {
       if (idx % 2 === 0 && stack[stack.length - 1][0] !== i) {
