@@ -1,5 +1,3 @@
-const { notDeepEqual } = require("assert");
-
 class Node {
   constructor(data, next = null, prev = null) {
     this.data = data;
