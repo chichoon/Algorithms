@@ -1,9 +1,7 @@
 const recurPaper = (input, n, x, y, stack) => {
   const cur = input[y][x];
   if (n === 1) {
-    if (cur === -1) stack[0]++;
-    else if (cur === 0) stack[1]++;
-    else if (cur === 1) stack[2]++;
+    stack[cur + 1]++;
     return;
   }
   let cnt = 0;
