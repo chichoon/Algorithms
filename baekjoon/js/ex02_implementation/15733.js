@@ -1,1 +1,5 @@
-console.log("I'm Sexy");
+const iam = () => {
+  console.log("I'm Sexy");
+};
+
+iam();
