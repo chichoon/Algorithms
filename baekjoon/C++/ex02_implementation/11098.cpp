@@ -10,7 +10,6 @@ int main(void) {
 	for (int i = 0; i < n; i++) {
 		std::cin >> p;
 		std::map<int, std::string> players;
-		std::map<int, std::string>::iterator it;
 
 		for (int j = 0; j < p; j++) {
 			std::cin >> cost >> name;
