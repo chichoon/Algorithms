@@ -6,7 +6,7 @@ int main(void) {
 	int n, max = -1;
 	int tArr[2000001] = {0};
 	int pArr[2000001] = {0};
-	int dp[2000001];
+	int dp[2000001] = {0};
 
 	std::cin >> n;
 	for (int i = 0; i < n; i++) {
