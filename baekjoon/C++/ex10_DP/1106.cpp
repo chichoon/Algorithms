@@ -20,9 +20,6 @@ int main(void) {
 		for (int j = 0; j < vec.size(); j++) {
 			if (i - vec[j].second < 0) continue;
 			min = std::min(dp[i - vec[j].second] + vec[j].first, min);
-			if (i % vec[j].second == 0) {
-				min = std::min(min, (i / vec[j].second) * vec[j].first);
-			}
 		}
 		dp[i] = min;
 	}
